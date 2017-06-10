@@ -1,0 +1,9 @@
+php artisan migrate:rollback
+php artisan migrate
+php artisan tinker
+namespace App;
+factory(User::class,20)->create();
+factory(Sensor::class,20)->create();
+factory(PVArray::class,20)->create();
+factory(PVModule::class,20)->create();
+factory(Devices::class,20)->create();
