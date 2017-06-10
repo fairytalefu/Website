@@ -73,6 +73,7 @@ class RegisterController extends Controller
             'roles' => 'member',
             'Lng' => 0.0,
             'Lat' => 0.0,
+            'remember_token' => str_random(10),
             'password' => bcrypt($data['password']),
         ]);
         return $Data;

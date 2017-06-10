@@ -7,8 +7,9 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">{{$user->name}} 的个人中心</div>
                     <div class="panel-body">
-                        <div class="panel-heading">
-                            <img src="/uploads/avatars/{{$user->avatar}}" onclick="change()" id="imgId" style="width:150px;height: 150px;float: right;border-radius:50%;margin-right: 25px" alt="">
+                        <div class="panel">
+
+                            <img src="/uploads/avatars/{{$user->avatars}}" onclick="change()" id="imgId" style="width:150px;height: 150px;float: right;border-radius:50%;margin-right: 25px" alt="">
                             <form id='avatarId' enctype="multipart/form-data" role="form" action="/profile" method="POST">
                                 <button type="submit" role="button" class="pull-left btn btn-primary ">上传头像</button>
                                 <input type="file" name="avatars">
@@ -33,6 +34,12 @@
                                 </div>
                             </div>
                         </form>
+                        <div class="panel panel-info">
+                            <div class="panel-heading">{{$user->api_token}}</div>
+                            <div class="panel-body">
+                                hello
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
