@@ -11,6 +11,6 @@ class Devices extends Model
     public $incrementing = false;
     public function hasManySensor()
     {
-        return $this->hasMany('App\Sensor','device_uuid','id');
+        return $this->hasMany('App\Sensor');
     }
 }

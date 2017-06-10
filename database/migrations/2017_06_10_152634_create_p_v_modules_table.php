@@ -15,7 +15,7 @@ class CreatePVModulesTable extends Migration
     {
         Schema::create('p_v_modules', function (Blueprint $table) {
             $table->increments('id');
-            $table->Integer('module_id')->unsigned()->index();
+            $table->Integer('module_id')->unsigned()->index()->default(0);
             $table->float('Current',6);
             $table->float('Voltage',6);
             $table->float('Power',6);

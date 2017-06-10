@@ -15,14 +15,14 @@ class CreatePVArraysTable extends Migration
     {
        Schema::create('p_v_arrays', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('array_id')->index();
+            $table->unsignedInteger('array_id')->index()->default(0);
             $table->float('Current',6);
             $table->float('Voltage',6);
             $table->float('Power',6);
             $table->float('Temp',6);
             $table->float('Irr',6);
             $table->float('Vmp',6);
-            $table->float('Tmp',6);
+            $table->float('Imp',6);
             $table->enum('status_describe',['Noraml','Open1','Open2','Short1','Short2','Shadow1','Shadow2']);
             $table->timestamps();
         });

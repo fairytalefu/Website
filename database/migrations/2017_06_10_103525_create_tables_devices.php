@@ -16,7 +16,7 @@ class CreateTablesDevices extends Migration
         Schema::create('devices', function (Blueprint $table) {
             $table->increments('id');
 //            $table->integer('station_id')->unsigned();
-            $table->integer('device_uuid')->unsigned()->index();
+            $table->integer('device_uuid')->unsigned()->index()->default(0);
 //            $table->integer('sensor_id')->unsigned()->index();
             $table->ipAddress('device_ip');
             $table->float('cpu_temp');

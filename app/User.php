@@ -14,7 +14,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'api_token','password','phoneNumber','roles','register_time','Lng','Lat',
+        'name', 'email','api_token','password','phoneNumber','roles','register_time',
     ];
 
     /**
@@ -25,7 +25,6 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
-    public $incrementing = false;
     public function hasOneStation()
     {
         return $this->hasOne('App\PVStation','user_id','id');

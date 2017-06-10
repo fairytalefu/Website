@@ -6,11 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Sensor extends Model
 {
+    protected $fillable=['sensor_name','value','update_at'];
+
     protected $table         = "sensor";
-    protected $primaryKey     = "sensor_id";
-    public $incrementing = false;
     public function belongsToDevices()
     {
-        return $this->belongsTo('App\Devices','device_uuid','id');
+        return $this->belongsTo('App\Devices');
     }
 }

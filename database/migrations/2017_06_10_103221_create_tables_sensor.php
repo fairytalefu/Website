@@ -15,8 +15,7 @@ class CreateTablesSensor extends Migration
     {
         Schema::create('sensor', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('sensor_id')->unsigned()->index();
-//            $table->integer('devices_uuid')->unsigned();
+            $table->integer('sensor_id')->unsigned()->index()->default(0);
             $table->string('sensor_name',8);
             $table->float('value');
             $table->dateTime('update_at');

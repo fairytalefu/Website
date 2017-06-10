@@ -12,6 +12,6 @@ class PVArray extends Model
     public $incrementing = false;
     public function belongsToPVStation()
     {
-        return $this->belongsTo('App\PVStation','station_uuid','id');
+        return $this->belongsTo('App\PVStation');
     }
 }
