@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTablesPvparam extends Migration
+class CreateTablesSensor extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,12 @@ class CreateTablesPvparam extends Migration
      */
     public function up()
     {
-        Schema::create('pvparam', function (Blueprint $table) {
+        Schema::create('sensor', function (Blueprint $table) {
             $table->increments('id');
+            $table->unsignedTinyInteger('sensor_id');
+            $table->string('sensor_name',8);
+            $table->float('value');
+            $table->dateTime('update_at');
             $table->timestamps();
         });
     }
@@ -26,6 +30,6 @@ class CreateTablesPvparam extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('pvparam');
+        Schema::dropIfExists('sensor');
     }
 }
