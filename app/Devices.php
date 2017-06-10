@@ -8,9 +8,9 @@ class Devices extends Model
 {
     protected $table         = "devices";
     protected $primaryKey     = "device_uuid";
-
-    public function sensor()
+    public $incrementing = false;
+    public function hasManySensor()
     {
-        return $this->hasMany('App\Sensor');
+        return $this->hasMany('App\Sensor','device_uuid','id');
     }
 }

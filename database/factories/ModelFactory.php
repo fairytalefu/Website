@@ -18,6 +18,23 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
     return [
         'name' => $faker->name,
         'email' => $faker->unique()->safeEmail,
+        'phoneNumber' => $faker->phoneNumber,
+        'api_key' => str_random(20),
+        'register_time' => $faker->dateTime,
+        'password' => $password ?: $password = bcrypt('secret'),
+        'remember_token' => str_random(10),
+    ];
+});
+
+$factory->define(App\PVStation::class, function (Faker\Generator $faker) {
+    static $password;
+
+    return [
+        'name' => $faker->name,
+        'email' => $faker->unique()->safeEmail,
+        'phoneNumber' => $faker->phoneNumber,
+        'api_key' => str_random(20),
+        'register_time' => $faker->dateTime,
         'password' => $password ?: $password = bcrypt('secret'),
         'remember_token' => str_random(10),
     ];

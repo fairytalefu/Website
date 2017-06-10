@@ -8,8 +8,9 @@ class Sensor extends Model
 {
     protected $table         = "sensor";
     protected $primaryKey     = "sensor_id";
-    public function device()
+    public $incrementing = false;
+    public function belongsToDevices()
     {
-        return $this->belongsTo('App\Devices');
+        return $this->belongsTo('App\Devices','device_uuid','id');
     }
 }

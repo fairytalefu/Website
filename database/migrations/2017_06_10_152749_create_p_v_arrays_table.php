@@ -1,0 +1,40 @@
+<?php
+
+use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
+
+class CreatePVArraysTable extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+       Schema::create('p_v_arrays', function (Blueprint $table) {
+            $table->increments('id');
+            $table->unsignedInteger('array_id')->index();
+            $table->float('Current',6);
+            $table->float('Voltage',6);
+            $table->float('Power',6);
+            $table->float('Temp',6);
+            $table->float('Irr',6);
+            $table->float('Vmp',6);
+            $table->float('Tmp',6);
+            $table->enum('status_describe',['Noraml','Open1','Open2','Short1','Short2','Shadow1','Shadow2']);
+            $table->timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::dropIfExists('p_v_arrays');
+    }
+}

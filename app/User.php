@@ -25,9 +25,10 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
-    public function pvsation()
+    public $incrementing = false;
+    public function hasOneStation()
     {
-        return $this->hasOne('App\PVStation');
+        return $this->hasOne('App\PVStation','user_id','id');
     }
 
 }
