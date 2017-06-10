@@ -26,6 +26,10 @@ class CreateTablesPvstation extends Migration
             $table->float('wind_force',6);
             $table->enum('wind_direction',['North','South','East','West','east_south','east_north','west_north','west_south']);
             $table->float('generating_capacity');
+            $table->foreign('device_uuid')->references('id')->on('devices');
+            $table->foreign('module_id')->references('id')->on('pvmodule');
+            $table->foreign('array_id')->references('id')->on('pvarray');
+
             $table->timestamps();
         });
         Schema::create('pvarray', function (Blueprint $table) {
@@ -43,7 +47,7 @@ class CreateTablesPvstation extends Migration
         });
         Schema::create('pvmodule', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedTinyInteger('array_id');
+            $table->unsignedTinyInteger('module_id');
             $table->float('Current',6);
             $table->float('Voltage',6);
             $table->float('Power',6);
