@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <title>Laravel</title>
-
+        <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.css" rel="stylesheet">
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
 
@@ -71,8 +71,10 @@
                     @if (Auth::check())
                         <a href="{{ url('/home') }}">主页</a>
                     @else
+
                         <a href="{{ url('/login') }}">登录</a>
                         <a href="{{ url('/register') }}">注册</a>
+
                     @endif
                 </div>
             @endif

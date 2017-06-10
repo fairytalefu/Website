@@ -51,7 +51,16 @@
                                 @endif
                             </div>
                         </div>
+                        <div class="form-group">
 
+                                <div class="panel panel-primary">
+                                    <div class="panel panel-body">
+
+                                    </div>
+
+                                </div>
+
+                        </div>
                         <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
                             <label for="password" class="col-md-4 control-label">密码</label>
 
