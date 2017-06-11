@@ -380,15 +380,15 @@
 				
 				<div class="span3 statbox purple" onTablet="span6" onDesktop="span3">
 					<div class="boxchart">5,6,7,2,0,4,2,4,8,2,3,3,2</div>
-					<div class="number">854<i class="icon-arrow-up"></i></div>
+					<div class="number">{{$aData[0]}}<i class="icon-arrow-up"></i></div>
 					<div class="title">温度</div>
 					<div class="footer">
 						<a href="#"> 查看全部</a>
 					</div>	
 				</div>
 				<div class="span3 statbox green" onTablet="span6" onDesktop="span3">
-					<div class="boxchart">{{$aData[0]}},{{$aData[1]}},{{$aData[2]}},{{$aData[3]}},{{$aData[4]}}</div>
-					<div class="number">{{$bData[2]}}<i @if($aData[3] > $bData[3])class="icon-arrow-up"@else class="icon-arrow-down" @endif></i></div>
+					<div class="boxchart">5,6,7,2,0,4,2,4,8,2,3,3,2</div>
+					<div class="number">{{$aData[1]}}<i @if($aData[3] > $aData[3])class="icon-arrow-up"@else class="icon-arrow-down" @endif></i></div>
 					<div class="title">光照度</div>
 					<div class="footer">
 						<a href="#"> 查看全部</a>
@@ -396,7 +396,7 @@
 				</div>
 				<div class="span3 statbox blue noMargin" onTablet="span6" onDesktop="span3">
 					<div class="boxchart">5,6,7,2,0,-4,-2,4,8,2,3,3,2</div>
-					<div class="number">982<i class="icon-arrow-up"></i></div>
+					<div class="number">{{$aData[2]}}<i class="icon-arrow-up"></i></div>
 					<div class="title">电压</div>
 					<div class="footer">
 						<a href="#"> 查看全部</a>
@@ -404,7 +404,7 @@
 				</div>
 				<div class="span3 statbox yellow" onTablet="span6" onDesktop="span3">
 					<div class="boxchart">7,2,2,2,1,-4,-2,4,8,,0,3,3,5</div>
-					<div class="number">678<i class="icon-arrow-down"></i></div>
+					<div class="number">{{$aData[3]}}<i class="icon-arrow-down"></i></div>
 					<div class="title">电流</div>
 					<div class="footer">
 						<a href="#"> 查看全部</a>

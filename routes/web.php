@@ -23,12 +23,7 @@ Route::post('updateUserInfo','UserController@updateUserInfo')->name('updateUserI
 Route::get('chart',function (){
    return view('test.chart');
 });
-Route::get('opop',function (){
-    $aData = [1,2,3,4];
-    $bData = [9,6,7,8];
-    $aData = array_merge($aData,$bData);
-    return view('test.index',compact('aData','bData'));
-});
+Route::get('dashboard','DashBoardController@index');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
