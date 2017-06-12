@@ -9,7 +9,11 @@
 	<meta name="author" content="Dennis Ji">
 	<meta name="keyword" content="Metro, Metro UI, Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
 	<!-- end: Meta -->
-	
+	<style type="text/css">
+		/*body, html{width: 100%;height: 100%;margin:0;font-family:"微软雅黑";}*/
+		#allmap{height:250px;width:100%;}
+		/*#r-result{width:100%; font-size:14px;}*/
+	</style>
 	<!-- start: Mobile Specific -->
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!-- end: Mobile Specific -->
@@ -346,7 +350,7 @@
 						<li><a href="http://127.0.0.1:9999/chart"><i class="icon-list-alt"></i><span class="hidden-tablet"> Charts</span></a></li>
 						<li><a href="test/html/typography.html"><i class="icon-font"></i><span class="hidden-tablet"> Typography</span></a></li>
 						<li><a href="test/html/gallery.html"><i class="icon-picture"></i><span class="hidden-tablet"> Gallery</span></a></li>
-						<li><a href="test/html/table.html"><i class="icon-align-justify"></i><span class="hidden-tablet"> Tables</span></a></li>
+						<li><a href="http://127.0.0.1:9999/table"><i class="icon-align-justify"></i><span class="hidden-tablet"> Tables</span></a></li>
 						<li><a href="test/html/calendar.html"><i class="icon-calendar"></i><span class="hidden-tablet"> Calendar</span></a></li>
 						<li><a href="test/html/file-manager.html"><i class="icon-folder-open"></i><span class="hidden-tablet"> File Manager</span></a></li>
 						<li><a href="test/html/icon.html"><i class="icon-star"></i><span class="hidden-tablet"> Icons</span></a></li>
@@ -380,7 +384,7 @@
 				
 				<div class="span3 statbox purple" onTablet="span6" onDesktop="span3">
 					<div class="boxchart">5,6,7,2,0,4,2,4,8,2,3,3,2</div>
-					<div class="number">{{$aData[0]}}<i class="icon-arrow-up"></i></div>
+					<div class="number">{{$aData->Temp}}<i class="icon-arrow-up"></i></div>
 					<div class="title">温度</div>
 					<div class="footer">
 						<a href="#"> 查看全部</a>
@@ -388,7 +392,7 @@
 				</div>
 				<div class="span3 statbox green" onTablet="span6" onDesktop="span3">
 					<div class="boxchart">5,6,7,2,0,4,2,4,8,2,3,3,2</div>
-					<div class="number">{{$aData[1]}}<i @if($aData[3] > $aData[3])class="icon-arrow-up"@else class="icon-arrow-down" @endif></i></div>
+					<div class="number">{{$aData->Irr}}<i @if($aData[3] > $aData[3])class="icon-arrow-up"@else class="icon-arrow-down" @endif></i></div>
 					<div class="title">光照度</div>
 					<div class="footer">
 						<a href="#"> 查看全部</a>
@@ -396,7 +400,7 @@
 				</div>
 				<div class="span3 statbox blue noMargin" onTablet="span6" onDesktop="span3">
 					<div class="boxchart">5,6,7,2,0,-4,-2,4,8,2,3,3,2</div>
-					<div class="number">{{$aData[2]}}<i class="icon-arrow-up"></i></div>
+					<div class="number">{{$aData->Vmp}}<i class="icon-arrow-up"></i></div>
 					<div class="title">电压</div>
 					<div class="footer">
 						<a href="#"> 查看全部</a>
@@ -404,7 +408,7 @@
 				</div>
 				<div class="span3 statbox yellow" onTablet="span6" onDesktop="span3">
 					<div class="boxchart">7,2,2,2,1,-4,-2,4,8,,0,3,3,5</div>
-					<div class="number">{{$aData[3]}}<i class="icon-arrow-down"></i></div>
+					<div class="number">{{$aData->Imp}}<i class="icon-arrow-down"></i></div>
 					<div class="title">电流</div>
 					<div class="footer">
 						<a href="#"> 查看全部</a>
@@ -416,11 +420,11 @@
 			<div class="row-fluid">
 				
 				<div class="span8 widget blue" onTablet="span7" onDesktop="span8">
-					
-					<div id="stats-chart2"  style="height:282px" ></div>
-					
+
+					{{--<div id="stats-chart2"  style="height:282px" ></div>--}}
+					<div id="allmap"></div>
 				</div>
-				
+
 				<div class="sparkLineStats span4 widget green" onTablet="span5" onDesktop="span4">
 
                     <ul class="unstyled">
@@ -456,7 +460,7 @@
                 </div><!-- End .sparkStats -->
 
 			</div>
-			
+
 			<div class="row-fluid hideInIE8 circleStats">
 				
 				<div class="span2" onTablet="span4" onDesktop="span2">
@@ -464,7 +468,7 @@
 						<div class="header">Disk Space Usage</div>
 						<span class="percent">percent</span>
 						<div class="circleStat">
-                    		<input type="text" value="58" class="whiteCircle" />
+                    		<input type="text" value="{{$deviceStatus->disk_space_usage}}" class="whiteCircle" />
 						</div>		
 						<div class="footer">
 							<span class="count">
@@ -506,7 +510,7 @@
 						<div class="header">Memory</div>
 						<span class="percent">percent</span>
                     	<div class="circleStat">
-                    		<input type="text" value="88" class="whiteCircle" />
+                    		<input type="text" value="{{$deviceStatus->memory_usage}}" class="whiteCircle" />
 						</div>
 						<div class="footer">
 							<span class="count">
@@ -527,7 +531,7 @@
 						<div class="header">CPU</div>
 						<span class="percent">percent</span>
                     	<div class="circleStat">
-                    		<input type="text" value="83" class="whiteCircle" />
+                    		<input type="text" value="{{$deviceStatus->cpu_usage}}" class="whiteCircle" />
 						</div>
 						<div class="footer">
 							<span class="count">
@@ -1092,6 +1096,23 @@
 
 		<script src="test/js/custom.js"></script>
 	<!-- end: JavaScript-->
-	
+	<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=NxtEqaXFSjTVbzfDCF91GYw7qTEeKEuq"></script>
+	<script type="text/javascript">
+        // 百度地图API功能
+        var map = new BMap.Map("allmap");
+        map.centerAndZoom(new BMap.Point(116.331398,39.897445),11);
+        map.enableScrollWheelZoom(true);
+
+        // 用经纬度设置地图中心点
+        function theLocation(){
+            if(document.getElementById("longitude").value != "" && document.getElementById("latitude").value != ""){
+                map.clearOverlays();
+                var new_point = new BMap.Point(document.getElementById("longitude").value,document.getElementById("latitude").value);
+                var marker = new BMap.Marker(new_point);  // 创建标注
+                map.addOverlay(marker);              // 将标注添加到地图中
+                map.panTo(new_point);
+            }
+        }
+	</script>
 </body>
 </html>

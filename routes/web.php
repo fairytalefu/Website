@@ -21,8 +21,18 @@ Route::get('profile','UserController@profile')->name('profile');
 Route::post('profile','UserController@update_avatar');
 Route::post('updateUserInfo','UserController@updateUserInfo')->name('updateUserInfo');
 Route::get('chart',function (){
-   return view('test.chart');
+    return view('test.chart');
 });
+Route::get('echarts',function (){
+    return view('test.bishe');
+});
+Route::get('table',function (){
+    return view('test.table');
+});
+Route::get('gettemp','DashBoardController@array_temp');
+
+
+//Route::resource('/api/{station_id}/{device_id}/{id}','DataController');
 Route::get('dashboard','DashBoardController@index');
 Auth::routes();
 

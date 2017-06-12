@@ -334,7 +334,7 @@
         <div id="sidebar-left" class="span2">
             <div class="nav-collapse sidebar-nav">
                 <ul class="nav nav-tabs nav-stacked main-menu">
-                    <li><a href="../../../resources/views/test/index.blade.php"><i class="icon-bar-chart"></i><span class="hidden-tablet"> Dashboard</span></a></li>
+                    <li><a href="index.blade.php"><i class="icon-bar-chart"></i><span class="hidden-tablet"> Dashboard</span></a></li>
                     <li><a href="messages.html"><i class="icon-envelope"></i><span class="hidden-tablet"> Messages</span></a></li>
                     <li><a href="tasks.html"><i class="icon-tasks"></i><span class="hidden-tablet"> Tasks</span></a></li>
                     <li><a href="ui.html"><i class="icon-eye-open"></i><span class="hidden-tablet"> UI Features</span></a></li>
@@ -460,7 +460,6 @@
             </div><!--/row-->
 
             <div class="row-fluid">
-
                 <div class="widget span6" onTablet="span6" onDesktop="span6">
                     <h2><span class="glyphicons facebook"><i></i></span>Facebook Fans</h2>
                     <hr>
@@ -512,25 +511,16 @@
 
 </footer>
 
-<!-- start: JavaScript-->
-
 <script src="test/js/jquery-1.9.1.min.js"></script>
 <script src="test/js/jquery-migrate-1.0.0.min.js"></script>
-
 <script src="test/js/jquery-ui-1.10.0.custom.min.js"></script>
-
 <script src="test/js/jquery.ui.touch-punch.js"></script>
-
 <script src="test/js/modernizr.js"></script>
-
 <script src="test/js/bootstrap.min.js"></script>
-
 <script src="test/js/jquery.cookie.js"></script>
-
 <script src='test/js/fullcalendar.min.js'></script>
 
 <script src='test/js/jquery.dataTables.min.js'></script>
-
 <script src="test/js/excanvas.js"></script>
 <script src="test/js/jquery.flot.js"></script>
 <script src="test/js/jquery.flot.pie.js"></script>
@@ -538,35 +528,20 @@
 <script src="test/js/jquery.flot.resize.min.js"></script>
 
 <script src="test/js/jquery.chosen.min.js"></script>
-
 <script src="test/js/jquery.uniform.min.js"></script>
-
 <script src="test/js/jquery.cleditor.min.js"></script>
-
 <script src="test/js/jquery.noty.js"></script>
-
 <script src="test/js/jquery.elfinder.min.js"></script>
-
 <script src="test/js/jquery.raty.min.js"></script>
-
 <script src="test/js/jquery.iphone.toggle.js"></script>
-
 <script src="test/js/jquery.uploadify-3.1.min.js"></script>
-
 <script src="test/js/jquery.gritter.min.js"></script>
-
 <script src="test/js/jquery.imagesloaded.js"></script>
-
 <script src="test/js/jquery.masonry.min.js"></script>
-
 <script src="test/js/jquery.knob.modified.js"></script>
-
 <script src="test/js/jquery.sparkline.min.js"></script>
-
 <script src="test/js/counter.js"></script>
-
 <script src="test/js/retina.js"></script>
-
 <script src="test/js/custom.js"></script>
 <!-- end: JavaScript-->
 

@@ -1414,37 +1414,68 @@ function charts() {
 		});
 	}
 	
-	
-	
+	function str2num(str) {
+        a = [];
+
+		for (i = 0; i < str.length; i++)
+		{
+            temp = parseInt(str[i]);
+            a.push(temp);
+		}
+		return a;
+    }
+
 	/* ---------- Chart with points ---------- */
 	if($("#sincos").length)
 	{
-		var sin = [], cos = [];
 
-		for (var i = 0; i < 14; i += 0.5) {
-			sin.push([i, Math.sin(i)/i]);
-			cos.push([i, Math.cos(i)]);
-		}
+        var sin = [], siData = [],sindata = [], cos = [];
 
+        $.ajax({
+
+            url: 'http://127.0.0.1:9999/getmsg',
+            data: sindata,
+            dataType: '',
+            method: 'GET',
+            success: function(sindata) {
+                // console.log(parseInt(sindata[0+1]));
+                // console.log(sindata);
+                siData = str2num(sindata);
+                console.log(siData);
+                for (var i = 0; i < 14; i += 0.5) {
+                    k = 0;
+                    sin.push([i, siData[k]]);
+                    cos.push([i, Math.cos(i)]);
+                    k++;
+                }
+                plt(sin,cos);
+            },
+           error: function(xhr) {
+           }
+        });
+
+
+	function plt(sin,cos)
+	{
 		var plot = $.plot($("#sincos"),
-			   [ { data: sin, label: "sin(x)/x"}, { data: cos, label: "cos(x)" } ], {
-				   series: {
-					   lines: { show: true,
-								lineWidth: 2,
-							 },
-					   points: { show: true },
-					   shadowSize: 2
-				   },
-				   grid: { hoverable: true, 
-						   clickable: true, 
-						   tickColor: "#dddddd",
-						   borderWidth: 0 
-						 },
-				   yaxis: { min: -1.2, max: 1.2 },
-				   colors: ["#FA5833", "#2FABE9"]
-				 });
-
-		function showTooltip(x, y, contents) {
+			[ { data: sin, label: "sin(x)/x"}, { data: cos, label: "cos(x)" } ], {
+				series: {
+					lines: { show: true,
+						lineWidth: 2,
+					},
+					points: { show: true },
+					shadowSize: 2
+				},
+				grid: { hoverable: true,
+					clickable: true,
+					tickColor: "#dddddd",
+					borderWidth: 0
+				},
+				yaxis: { min: -10.2, max: 50 },
+				colors: ["#FA5833", "#2FABE9"]
+			});
+	}
+	function showTooltip(x, y, contents) {
 			$('<div id="tooltip">' + contents + '</div>').css( {
 				position: 'absolute',
 				display: 'none',
@@ -1479,9 +1510,6 @@ function charts() {
 					previousPoint = null;
 				}
 		});
-		
-
-
 		$("#sincos").bind("plotclick", function (event, pos, item) {
 			if (item) {
 				$("#clickdata").text("You clicked point " + item.dataIndex + " in " + item.series.label + ".");
@@ -1556,9 +1584,7 @@ function charts() {
 				colors: ["#FA5833", "#2FABE9", "#FABB3D"]
 			});
 		}
-
 		plotWithOptions();
-
 		$(".stackControls input").click(function (e) {
 			e.preventDefault();
 			stack = $(this).val() == "With stacking" ? true : null;
