@@ -543,7 +543,6 @@
 <script src="test/js/counter.js"></script>
 <script src="test/js/retina.js"></script>
 <script src="test/js/custom.js"></script>
-<!-- end: JavaScript-->
 
 </body>
 </html>

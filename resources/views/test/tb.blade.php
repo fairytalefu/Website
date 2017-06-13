@@ -387,8 +387,12 @@
                                 <th>Irr</th>
                                 <th>Vmp</th>
                                 <th>Imp</th>
+                                <th>Current</th>
+                                <th>Voltage</th>
+                                <th>Power</th>
+                                <th>Status</th>
                                 <th>created_at</th>
-                                <th>Actions</th>
+                                <th>Option</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -399,11 +403,14 @@
                                 <td class="center">{{$pv->Irr}}</td>
                                 <td class="center">{{$pv->Vmp}}</td>
                                 <td class="center">{{$pv->Imp}}</td>
-                                <td class="center">{{$pv->created_at}}</td>
-
+                                <td class="center">{{$pv->Current}}</td>
+                                <td class="center">{{$pv->Voltage}}</td>
+                                <td class="center">{{$pv->Power}}</td>
                                 <td class="center">
-                                    <span class="label label-success">Active</span>
+                                    <span class="label label-success">{{$pv->status_describe}}</span>
                                 </td>
+
+                                <td class="center">{{$pv->created_at}}</td>
                                 <td class="center">
                                     <a class="btn btn-success" href="#">
                                         <i class="halflings-icon white zoom-in"></i>
@@ -419,12 +426,13 @@
                             @endforeach
                             </tbody>
                         </table>
+                        <div class="pagination pagination-centered">
+                            <ul>
+                                {{ $pvarray->links() }}
+                            </ul>
+                        </div>
                     </div>
-                    <div class="pagination pagination-centered">
-                        <ul>
-                            {{ $pvarray->links() }}
-                        </ul>
-                    </div>
+
 
                 </div><!--/span-->
 
@@ -446,16 +454,16 @@
                             <tr>
                                 <th>id</th>
                                 <th>Temp</th>
-                                <th>time</th>
+                                <th>created_at</th>
                                 <th>Status</th>
                             </tr>
                             </thead>
                             <tbody>
-                            @foreach($pvarray as $pv)
+                            @foreach($pvT as $pvt)
                             <tr>
-                                <td>{{$pv->id}}</td>
-                                <td class="center">{{$pv->Temp}}</td>
-                                <td class="center">{{$pv->created_at}}</td>
+                                <td>{{$pvt->id}}</td>
+                                <td class="center">{{$pvt->Temp}}</td>
+                                <td class="center">{{$pvt->created_at}}</td>
                                 <td class="center">
                                     <span class="label label-success">Active</span>
                                 </td>
@@ -465,7 +473,7 @@
                         </table>
                         <div class="pagination pagination-centered">
                             <ul>
-                            {{ $pvarray->links() }}
+                            {{ $pvT->links() }}
                             </ul>
                         </div>
                     </div>
@@ -473,7 +481,7 @@
 
                 <div class="box span6">
                     <div class="box-header">
-                        <h2><i class="halflings-icon align-justify"></i><span class="break"></span>Striped Table</h2>
+                        <h2><i class="halflings-icon align-justify"></i><span class="break"></span>光伏阵列电压</h2>
                         <div class="box-icon">
                             <a href="#" class="btn-setting"><i class="halflings-icon wrench"></i></a>
                             <a href="#" class="btn-minimize"><i class="halflings-icon chevron-up"></i></a>
@@ -491,21 +499,21 @@
                             </tr>
                             </thead>
                             <tbody>
-                            @foreach($pvarray as $pv)
+                            @foreach($pvV as $pvv)
                                 <tr>
-                                    <td>{{$pv->id}}</td>
-                                    <td class="center">{{$pv->Vmp}}</td>
-                                    <td class="center">{{$pv->created_at}}</td>
+                                    <td>{{$pvv->id}}</td>
+                                    <td class="center">{{$pvv->Vmp}}</td>
+                                    <td class="center">{{$pvv->created_at}}</td>
                                     <td class="center">
                                         <span class="label label-success">Active</span>
                                     </td>
                                 </tr>
                             @endforeach
-                        </tbody>
+                            </tbody>
                         </table>
                         <div class="pagination pagination-centered">
                             <ul>
-
+                                {{ $pvV->links() }}
                             </ul>
                         </div>
                     </div>
@@ -533,11 +541,11 @@
                             </tr>
                             </thead>
                             <tbody>
-                            @foreach($pvarray as $pv)
+                            @foreach($pvIrr as $pvirr)
                             <tr>
-                                <td>{{$pv->id}}</td>
-                                <td class="center">{{$pv->Irr}}</td>
-                                <td class="center">{{$pv->created_at}}</td>
+                                <td>{{$pvirr->id}}</td>
+                                <td class="center">{{$pvirr->Irr}}</td>
+                                <td class="center">{{$pvirr->created_at}}</td>
                                 <td class="center">
                                     <span class="label label-success">Active</span>
                                 </td>
@@ -548,7 +556,7 @@
                         </table>
                         <div class="pagination pagination-centered">
                             <ul>
-                                {{ $pvarray->links() }}
+                                {{ $pvIrr->links() }}
                             </ul>
                         </div>
                     </div>
@@ -574,11 +582,11 @@
                             </tr>
                             </thead>
                             <tbody>
-                            @foreach($pvarray as $pv)
+                            @foreach($pvI as $pvi)
                                 <tr>
-                                    <td>{{$pv->id}}</td>
-                                    <td class="center">{{$pv->Imp}}</td>
-                                    <td class="center">{{$pv->created_at}}</td>
+                                    <td>{{$pvi->id}}</td>
+                                    <td class="center">{{$pvi->Imp}}</td>
+                                    <td class="center">{{$pvi->created_at}}</td>
                                     <td class="center">
                                         <span class="label label-success">Active</span>
                                     </td>
@@ -588,7 +596,7 @@
                         </table>
                         <div class="pagination pagination-centered">
                             <ul>
-                                {{$pvarray->links()}}
+                                {{$pvI->links()}}
                             </ul>
                         </div>
                     </div>
@@ -611,27 +619,28 @@
                             <thead>
                             <tr>
                                 <th>id</th>
-                                <th>Vmp</th>
+                                <th>Status_Describe</th>
                                 <th>created_at</th>
                                 <th>Status</th>
                             </tr>
                             </thead>
                             <tbody>
-                            @foreach($pvarray as $pv)
-                            <tr>
-                                <td>{{$pv->id}}</td>
-                                <td class="center">{{$pv->Vmp}}</td>
-                                <td class="center">{{$pv->created_at}}</td>
-                                <td class="center">
-                                    <span class="label label-success">Active</span>
-                                </td>
-                            </tr>
+                            @foreach($status as $ss)
+                                <tr>
+                                    <td>{{$ss->id}}</td>
+                                    <td class="center">
+                                        <span class="label label-success">{{$ss->status_describe}}</span></td>
+                                    <td class="center">{{$ss->created_at}}</td>
+                                    <td class="center">
+                                        <span class="label label-success">Active</span>
+                                    </td>
+                                </tr>
                             @endforeach
                             </tbody>
                         </table>
                         <div class="pagination pagination-centered">
                             <ul>
-
+                                {{ $status->links() }}
                             </ul>
                         </div>
                     </div>

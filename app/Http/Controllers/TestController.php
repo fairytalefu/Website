@@ -3,9 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\PVArray;
+use Illuminate\Contracts\Pagination\Paginator;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 use DB;
+
+
 class TestController extends Controller
 {
     //
@@ -18,6 +21,11 @@ class TestController extends Controller
     {
 //        $pvarray = DB::select('select * from p_v_arrays')->simplePaginate(15);
         $pvarray = PVArray::paginate(15);
-        return view('test.tb')->with('pvarray',$pvarray);
+        $pvT = PVArray::where('id', '>', 0)->Paginate(10);
+        $pvIrr = PVArray::where('id', '>', 0)->Paginate(10);
+        $pvV = PVArray::where('id', '>', 0)->Paginate(10);
+        $pvI = PVArray::where('id', '>', 0)->Paginate(10);
+        $status = PVArray::where('id', '>', 0)->Paginate(10);
+        return view('test.tb',['pvarray' => $pvarray,'pvT'=>$pvT,'pvIrr' =>$pvIrr, 'pvV' =>$pvV, 'pvI' =>$pvI,'status' => $status]);
     }
 }
