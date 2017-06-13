@@ -26,9 +26,8 @@ Route::get('chart',function (){
 Route::get('echarts',function (){
     return view('test.bishe');
 });
-Route::get('table',function (){
-    return view('test.table');
-});
+Route::get('table','TestController@array_table');
+Route::get('tb','TestController@index');
 Route::get('gettemp','DashBoardController@array_temp');
 
 
