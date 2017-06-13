@@ -371,7 +371,7 @@
             <div class="row-fluid sortable">
                 <div class="box span12">
                     <div class="box-header" data-original-title>
-                        <h2><i class="halflings-icon user"></i><span class="break"></span>Members</h2>
+                        <h2><i class="halflings-icon user"></i><span class="break"></span>光伏阵列参数</h2>
                         <div class="box-icon">
                             <a href="#" class="btn-setting"><i class="halflings-icon wrench"></i></a>
                             <a href="#" class="btn-minimize"><i class="halflings-icon chevron-up"></i></a>
@@ -383,8 +383,8 @@
                             <thead>
                             <tr>
                                 <th>id</th>
-                                <th>Temp</th>
-                                <th>Irr</th>
+                                <th>Temp(°C)</th>
+                                <th>Irr(W/㎡)</th>
                                 <th>Vmp</th>
                                 <th>Imp</th>
                                 <th>Current</th>
@@ -399,13 +399,13 @@
                             @foreach($pvarray as $pv)
                             <tr>
                                 <td>{{$pv->id}}  </td>
-                                <td class="center">{{$pv->Temp}}</td>
-                                <td class="center">{{$pv->Irr}}</td>
-                                <td class="center">{{$pv->Vmp}}</td>
-                                <td class="center">{{$pv->Imp}}</td>
-                                <td class="center">{{$pv->Current}}</td>
-                                <td class="center">{{$pv->Voltage}}</td>
-                                <td class="center">{{$pv->Power}}</td>
+                                <td class="center"><span class="label label-info">{{$pv->Temp}}</span></td>
+                                <td class="center"><span class="label label-info">{{$pv->Irr}}</span></td>
+                                <td class="center"><span class="label label-info">{{$pv->Vmp}}</span></td>
+                                <td class="center"><span class="label label-info">{{$pv->Imp}}</span></td>
+                                <td class="center"><span class="label label-primary">{{$pv->Current}}</span></td>
+                                <td class="center"><span class="label label-primary">{{$pv->Voltage}}</span></td>
+                                <td class="center"><span class="label label-primary">{{$pv->Power}}</span></td>
                                 <td class="center">
                                     <span class="label label-success">{{$pv->status_describe}}</span>
                                 </td>
@@ -481,7 +481,7 @@
 
                 <div class="box span6">
                     <div class="box-header">
-                        <h2><i class="halflings-icon align-justify"></i><span class="break"></span>光伏阵列电压</h2>
+                        <h2><i class="halflings-icon align-justify"></i><span class="break"></span>光伏阵列最大功率点电压</h2>
                         <div class="box-icon">
                             <a href="#" class="btn-setting"><i class="halflings-icon wrench"></i></a>
                             <a href="#" class="btn-minimize"><i class="halflings-icon chevron-up"></i></a>
@@ -564,7 +564,7 @@
 
                 <div class="box span6">
                     <div class="box-header">
-                        <h2><i class="halflings-icon align-justify"></i><span class="break"></span>Condensed Table</h2>
+                        <h2><i class="halflings-icon align-justify"></i><span class="break"></span>光伏阵列最大功率点电流</h2>
                         <div class="box-icon">
                             <a href="#" class="btn-setting"><i class="halflings-icon wrench"></i></a>
                             <a href="#" class="btn-minimize"><i class="halflings-icon chevron-up"></i></a>
@@ -607,7 +607,7 @@
             <div class="row-fluid sortable">
                 <div class="box span12">
                     <div class="box-header">
-                        <h2><i class="halflings-icon align-justify"></i><span class="break"></span>Combined All Table</h2>
+                        <h2><i class="halflings-icon align-justify"></i><span class="break"></span>光伏阵列电流、电压、功率</h2>
                         <div class="box-icon">
                             <a href="#" class="btn-setting"><i class="halflings-icon wrench"></i></a>
                             <a href="#" class="btn-minimize"><i class="halflings-icon chevron-up"></i></a>
@@ -619,7 +619,9 @@
                             <thead>
                             <tr>
                                 <th>id</th>
-                                <th>Status_Describe</th>
+                                <th>Current</th>
+                                <th>Voltage</th>
+                                <th>Power</th>
                                 <th>created_at</th>
                                 <th>Status</th>
                             </tr>
@@ -628,11 +630,12 @@
                             @foreach($status as $ss)
                                 <tr>
                                     <td>{{$ss->id}}</td>
-                                    <td class="center">
-                                        <span class="label label-success">{{$ss->status_describe}}</span></td>
+                                    <td class="center"><span class="label label-warring">{{$ss->Current}}</span></td>
+                                    <td class="center"><span class="label label-warring">{{$ss->Voltage}}</span></td>
+                                    <td class="center"><span class="label label-warring">{{$ss->Power}}</span></td>
                                     <td class="center">{{$ss->created_at}}</td>
                                     <td class="center">
-                                        <span class="label label-success">Active</span>
+                                        <span class="label label-success">{{$ss->status_describe}}</span>
                                     </td>
                                 </tr>
                             @endforeach

@@ -20,15 +20,17 @@
            margin:0px 0px 0px 50px;
            }
      </style>
-     
+       <script src = "js/jquery.js"></script>
+       <script src="js/echarts.js"></script>
    </head>
    
    <body>
-     <div id="main" ></div>
+     <div id="Temp" style="width:600px;height:400px;" ></div>
+anfjdsanfbndasjknfdjk
+     <br>
+     <div id="Irr" style="width:600px;height:400px;"></div>
 
-     <script src = "js/jquery.js"></script>
-     <script src="js/echarts.js"></script>
-     <script src="js/Custom.js"></script>
+     <script src="js/temp.js"></script>
      <script  type="text/javascript">
         getMessage();
      </script>
