@@ -24,12 +24,15 @@ Route::get('chart',function (){
     return view('test.chart');
 });
 Route::get('echarts',function (){
-    return view('test.bishe');
+    return view('test.charts');
 });
 Route::get('table','TestController@array_table');
 Route::get('tb','TestController@index');
-Route::get('gettemp','DashBoardController@array_temp');
-
+Route::get('gettemp','DashBoardController@array_Temp');
+Route::get('getIrr','DashBoardController@array_Irr');
+Route::get('getCurrent','DashBoardController@array_Current');
+Route::get('getVoltage','DashBoardController@array_Voltage');
+Route::get('getPower','DashBoardController@array_Power');
 
 //Route::resource('/api/{station_id}/{device_id}/{id}','DataController');
 Route::get('dashboard','DashBoardController@index');

@@ -8,25 +8,25 @@ var month=9;
 var hours=0;
 var minutes=0;
 var seconds =0;
-function getMessage()
+function getPower()
 {
     $.ajax({
         type:'get',
-        url:'/gettemp',
+        url:'/getPower',
         data:'',
         success:function(result)
         {
 
             if (result)
             {
-                arr2=result.temp;
+                arr2=result.Power;
                 arr1=result.time;
                 len=1;
 
                 while (len < arr1.length )
                 {
-                    temp=arr1[len];
-                    translate(temp);
+                    time=arr1[len];
+                    translate(time);
 //                      console.log(num);
 //                     alert('kkk');
                     d.push([
@@ -37,11 +37,11 @@ function getMessage()
                     len+=1;
                 }
 
-                var  myChart = echarts.init(document.getElementById('Temp'));
+                var  myChart = echarts.init(document.getElementById('Power'));
 
                 option = {
                     title : {
-                        text : '温度',
+                        text : '阵列功率',
                         subtext : 'dataZoom支持'
                     },
                     tooltip : {
@@ -104,7 +104,7 @@ function getMessage()
                         start : 70
                     },
                     legend : {
-                        data : ['Temp']
+                        data : ['Power']
                     },
                     grid: {
                         y2: 80
@@ -122,7 +122,7 @@ function getMessage()
                     ],
                     series : [
                         {
-                            name: 'Temp',
+                            name: 'Power',
                             type: 'line',
                             showAllSymbol: true,
                             symbolSize: function (value){
