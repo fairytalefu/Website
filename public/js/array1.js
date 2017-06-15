@@ -8,25 +8,25 @@ var month=9;
 var hours=0;
 var minutes=0;
 var seconds =0;
-function getMessage()
+function getIrr()
 {
     $.ajax({
         type:'get',
-        url:'/gettemp',
+        url:'/getIrr',
         data:'',
         success:function(result)
         {
 
             if (result)
             {
-                arr2=result.temp;
+                arr2=result.Irr;
                 arr1=result.time;
                 len=1;
 
                 while (len < arr1.length )
                 {
-                    temp=arr1[len];
-                    translate(temp);
+                    time=arr1[len];
+                    translate(time);
 //                      console.log(num);
 //                     alert('kkk');
                     d.push([
@@ -37,11 +37,11 @@ function getMessage()
                     len+=1;
                 }
 
-                var  myChart = echarts.init(document.getElementById('Temp'));
+                var  myChart1 = echarts.init(document.getElementById('Irr'));
 
                 option = {
                     title : {
-                        text : '温度',
+                        text : '光照度',
                         subtext : 'dataZoom支持'
                     },
                     tooltip : {
@@ -69,16 +69,20 @@ function getMessage()
                                 readOnly: true,
                                 lang : ['数据视图', '关闭', '刷新'],
                                 optionToContent: function(opt) {
-                                      var axisData = opt.xAxis[0].data;
-                                       var series1 = opt.series;
+//                   var axisData = opt.xAxis[0].data;
+//                    var series1 = opt.series;
                                     var table = '<table style="width:100%;text-align:center"><tbody><tr>'
                                         + '<td>时间</td>'
                                         + '<td>电压</td>'
                                         + '<td>Tag</td>'
                                         + '</tr>';
-                                     table += '<tr><td>arr2/td>'
-                                            + '<td>arr1</td>'
-                                            + '<td>2013.2.2</td></tr>';
+
+                                    table += '\n\t'
+                                        + "2013.2.2" + '\n\t'
+                                        + 100 + '\n\t'
+                                        + 100 + '\n\t'
+                                    ;
+
                                     table += '</tbody></table>';
                                     return table;
                                 }
@@ -100,7 +104,7 @@ function getMessage()
                         start : 70
                     },
                     legend : {
-                        data : ['Temp']
+                        data : ['Irr']
                     },
                     grid: {
                         y2: 80
@@ -118,7 +122,7 @@ function getMessage()
                     ],
                     series : [
                         {
-                            name: 'Temp',
+                            name: 'Irr',
                             type: 'line',
                             showAllSymbol: true,
                             symbolSize: function (value){
@@ -130,7 +134,7 @@ function getMessage()
                 };
 
 
-                myChart.setOption(option);
+                myChart1.setOption(option);
             }
         }
     });

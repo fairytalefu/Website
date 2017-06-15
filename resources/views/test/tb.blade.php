@@ -369,6 +369,33 @@
             </ul>
 
             <div class="row-fluid sortable">
+                <a href="#" class="btn btn-danger">Delete All</a>
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+                    Import
+                </button>
+                <a href="#" class="btn btn-success">Export</a>
+                <!-- Modal -->
+                <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+                            </div>
+                            <div class="modal-body">
+                                <form action="" method="post" enctype="multipart/form-data">
+                                    <input type="hidden" name="_token" value="{{csrf_token()}}">
+                                    <input type="file" name="pvarray">
+                                    <input type="submit" value="Import">
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                                <button type="button" class="btn btn-primary">返回</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div class="box span12">
                     <div class="box-header" data-original-title>
                         <h2><i class="halflings-icon user"></i><span class="break"></span>光伏阵列参数</h2>
@@ -379,7 +406,7 @@
                         </div>
                     </div>
                     <div class="box-content">
-                        <table class="table table-striped table-bordered bootstrap-datatable datatable">
+                          <table class="table table-striped table-bordered bootstrap-datatable datatable">
                             <thead>
                             <tr>
                                 <th>id</th>

@@ -36,10 +36,6 @@
     <!-- start: Favicon -->
     <link rel="shortcut icon" href="img/favicon.ico">
     <!-- end: Favicon -->
-
-
-
-
 </head>
 
 <body>
@@ -393,8 +389,8 @@
                         </div>
                     </div>
                     <div class="box-content">
-                        <div id="sincos"  class="center" style="height:300px;" ></div>
-                        <p id="hoverdata">Mouse position at (<span id="x">0</span>, <span id="y">0</span>). <span id="clickdata"></span></p>
+                        <div id="sincos"  class="center" style="height:300px;float:left;" ></div>
+                        <div id="Irr" style="width:600px;height:400px;"></div>
                     </div>
                 </div>
 
@@ -408,13 +404,38 @@
                         </div>
                     </div>
                     <div class="box-content">
-                        <div id="flotchart" class="center" style="height:300px"></div>
-                    </div>
-                </div>
+                        <div id="Temp" style="width:600px;height:400px;float:left;" ></div>
+                        <div style="float:right;">
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th>id</th>
+                                    <th>Temp</th>
+                                    <th>created_at</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                @foreach($pvT as $pvt)
+                                    <tr>
+                                        <td class="center">{{$pvt->id}}</td>
+                                        <td class="center">{{$pvt->Temp}}</td>
+                                        <td class="center">{{$pvt->created_at}}</td>
+                                    </tr>
+                                @endforeach
+                                </tbody>
+                            </table>
+                            <div class="pagination pagination-centered">
+                                <ul>
+                                    {{ $pvT->links() }}
+                                </ul>
+                            </div>
+                            </div>
+                        </div>
 
+                    </div>
                 <div class="box">
                     <div class="box-header">
-                        <h2><i class="halflings-icon list-alt"></i><span class="break"></span>Stack Example</h2>
+                        <h2><i class="halflings-icon list-alt"></i><span class="break"></span>Flot</h2>
                         <div class="box-icon">
                             <a href="#" class="btn-setting"><i class="halflings-icon wrench"></i></a>
                             <a href="#" class="btn-minimize"><i class="halflings-icon chevron-up"></i></a>
@@ -422,90 +443,52 @@
                         </div>
                     </div>
                     <div class="box-content">
-                        <div id="stackchart" class="center" style="height:300px;"></div>
-
-                        <p class="stackControls center">
-                            <input class="btn" type="button" value="With stacking">
-                            <input class="btn" type="button" value="Without stacking">
-                        </p>
-
-                        <p class="graphControls center">
-                            <input class="btn-primary" type="button" value="Bars">
-                            <input class="btn-primary" type="button" value="Lines">
-                            <input class="btn-primary" type="button" value="Lines with steps">
-                        </p>
-                    </div>
-                </div>
-
-            </div><!--/row-->
-
-            <hr>
-
-            <div class="row-fluid sortable">
-                <div class="box span12">
-                    <div class="box-header">
-                        <h2><i class="halflings-icon list-alt"></i><span class="break"></span>Realtime</h2>
-                        <div class="box-icon">
-                            <a href="#" class="btn-setting"><i class="halflings-icon wrench"></i></a>
-                            <a href="#" class="btn-minimize"><i class="halflings-icon chevron-up"></i></a>
-                            <a href="#" class="btn-close"><i class="halflings-icon remove"></i></a>
+                        <div id="Array" style="width:600px;height:400px;float:left;" ></div>
+                        <div style="float:right;">
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th>id</th>
+                                    <th>Temp</th>
+                                    <th>created_at</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                @foreach($pvT as $pvt)
+                                    <tr>
+                                        <td class="center">{{$pvt->id}}</td>
+                                        <td class="center">{{$pvt->Temp}}</td>
+                                        <td class="center">{{$pvt->created_at}}</td>
+                                    </tr>
+                                @endforeach
+                                </tbody>
+                            </table>
+                            <div class="pagination pagination-centered">
+                                <ul>
+                                    {{ $pvT->links() }}
+                                </ul>
+                            </div>
                         </div>
                     </div>
-                    <div class="box-content">
-                        <div id="realtimechart" style="height:190px;"></div>
-                        <p>You can update a chart periodically to get a real-time effect by using a timer to insert the new data in the plot and redraw it.</p>
-                        <p>Time between updates: <input id="updateInterval" type="text" value="" style="text-align: right; width:5em"> milliseconds</p>
-                    </div>
+
                 </div>
-            </div><!--/row-->
-
-            <div class="row-fluid">
-                <div class="widget span6" onTablet="span6" onDesktop="span6">
-                    <h2><span class="glyphicons facebook"><i></i></span>Facebook Fans</h2>
-                    <hr>
-                    <div class="content">
-                        <div id="facebookChart" style="height:300px" ></div>
-                    </div>
-                </div><!--/span-->
-
-                <div class="widget span6" onTablet="span6" onDesktop="span6">
-                    <h2><span class="glyphicons twitter"><i></i></span>Twitter Followers</h2>
-                    <hr>
-                    <div class="content">
-                        <div id="twitterChart" style="height:300px" ></div>
-                    </div>
-                </div><!--/span-->
-
             </div>
 
+        </div><!--/row-->
+        <hr>
+
+       </div><!--/.fluid-container-->
 
 
-        </div><!--/.fluid-container-->
 
-        <!-- end: Content -->
-    </div><!--/#content.span10-->
 </div><!--/fluid-row-->
-
-<div class="modal hide fade" id="myModal">
-    <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">×</button>
-        <h3>Settings</h3>
-    </div>
-    <div class="modal-body">
-        <p>Here settings can be configured...</p>
-    </div>
-    <div class="modal-footer">
-        <a href="#" class="btn" data-dismiss="modal">Close</a>
-        <a href="#" class="btn btn-primary">Save changes</a>
-    </div>
-</div>
 
 <div class="clearfix"></div>
 
 <footer>
 
     <p>
-        <span style="text-align:left;float:left">&copy; 2013 <a href="http://jiji262.github.io/Bootstrap_Metro_Dashboard/" alt="Bootstrap_Metro_Dashboard">Bootstrap Metro Dashboard</a></span>
+        <span style="text-align:left;float:left">&copy; 2017<a href="http://jiji262.github.io/Bootstrap_Metro_Dashboard/" alt="Bootstrap_Metro_Dashboard">Bootstrap Metro Dashboard</a></span>
 
     </p>
 
@@ -542,7 +525,23 @@
 <script src="test/js/jquery.sparkline.min.js"></script>
 <script src="test/js/counter.js"></script>
 <script src="test/js/retina.js"></script>
-<script src="test/js/custom.js"></script>
 
+
+
+<script src="js/echarts.js"></script>
+<script src="js/temp.js"></script>
+<script src="js/array.js"></script>
+<script src="js/current.js"></script>
+<script src="js/voltage.js"></script>
+<script src="js/power.js"></script>
+<script src="js/Irr.js"></script>
+<script  type="text/javascript">
+    getMessage();
+    getIrr();
+    getCurrent();
+    getVoltage();
+    getPower();
+    getArray();
+</script>
 </body>
 </html>
