@@ -26,7 +26,7 @@ function getArray()
                 Power=result.Power;
                 time=result.time;
                 len=1;
-                while (len < arr1.length )
+                while (len < temp.length )
                 {
                     temp_time=time[len];
                     translate(temp_time);
@@ -74,7 +74,11 @@ function getArray()
                         }
                     },
                     legend: {
-                        data:['邮件营销','联盟广告','视频广告','直接访问','搜索引擎']
+                        data:['温度','光照度','电流','电压','功率']
+                    },
+                    dataZoom: {
+                        show: true,
+                        start : 70
                     },
                     grid: {
                         left: '3%',
@@ -96,33 +100,53 @@ function getArray()
                     },
                     series: [
                         {
-                            name:'邮件营销',
+                            name:'温度',
                             type:'line',
                             stack: '总量',
+                            showAllSymbol: true,
+                            symbolSize: function (value){
+                                return Math.round(value[2]/10) + 2;
+                            },
                             data:dtemp
                         },
                         {
-                            name:'联盟广告',
+                            name:'光照度',
                             type:'line',
                             stack: '总量',
+                            showAllSymbol: true,
+                            symbolSize: function (value){
+                                return Math.round(value[2]/10) + 2;
+                            },
                             data:dIrr
                         },
                         {
-                            name:'视频广告',
+                            name:'电流',
                             type:'line',
                             stack: '总量',
+                            showAllSymbol: true,
+                            symbolSize: function (value){
+                                return Math.round(value[2]/10) + 2;
+                            },
                             data:dcurrent
                         },
                         {
-                            name:'直接访问',
+                            name:'电压',
                             type:'line',
                             stack: '总量',
+                            showAllSymbol: true,
+                            symbolSize: function (value){
+                                return Math.round(value[2]/10) + 2;
+                            },
                             data:dvoltage
                         },
                         {
-                            name:'搜索引擎',
+                            name:'功率',
                             type:'line',
                             stack: '总量',
+                            showAllSymbol: true,
+                            symbolSize: function (value){
+                                return Math.round(value[2]/10) + 2;
+                            },
                             data:dpower
                         }
                     ]
