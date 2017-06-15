@@ -1,4 +1,3 @@
-
 var temp=[],Irr=[],Current= [],Voltage=[],Power=[],time=[];
 var dtemp = [],dIrr = [], dcurrent =[], dvoltage = [], dpower = [];
 var len = 0;
@@ -16,7 +15,6 @@ function getArray()
         data:'',
         success:function(result)
         {
-
             if (result)
             {
                 temp=result.Temp;
@@ -161,13 +159,10 @@ function  translate(il)
 {
     var obj2 = il.split("");
     var date = obj2.slice(0,19);
-    num=date[0]*1000+date[1]*100+date[2]*10+parseInt(date[3]);
-    month=(date[5]*10+parseInt(date[6]))-1;
-    day=(date[8]*10+parseInt(obj2[9]));
-    hours=date[11]*10+parseInt(date[12]);
+    num= date[0]*1000+date[1]*100+date[2]*10+parseInt(date[3]);
+    month= (date[5]*10+parseInt(date[6]))-1;
+    day= date[8]*10+parseInt(obj2[9]);
+    hours= date[11]*10+parseInt(date[12]);
     minutes = date[14]*10+parseInt(date[15]);
     seconds = date[17]*10+parseInt(date[18]);
 }
-
-
-

@@ -12,11 +12,12 @@ class DashBoardController extends Controller
     //
     public $abData = [];
     protected $deviceStatus = [];
-
+    public $array_data = [];
     public function __construct()
     {
         $this->abData = $this->arrayStatus();
         $this->deviceStatus = $this->DeviceStatus();
+        $this->middleware('auth');
     }
 
     public function index()
@@ -118,9 +119,15 @@ class DashBoardController extends Controller
         $timeCollection = $colletion->pluck('created_at');
 
         $h = array_merge([$tempCollection,$IrrCollection,$CurrentCollection,$VoltageCollection,$PowerCollection,$timeCollection]);
+        $this->array_data = $h;
         return response()->json(array('Temp'=> $h[0],'Irr'=>$h[1],
             'Current'=> $h[2],'Voltage'=>$h[3],
             'Power'=> $h[4],'time'=>$h[5]), 200);
+    }
+    public function array_chart()
+    {
+        $pvarray = PVArray::paginate(15);
+        return view('chart.array',compact('pvarray'));
     }
 }
 

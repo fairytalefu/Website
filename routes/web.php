@@ -33,6 +33,8 @@ Route::get('getVoltage','DashBoardController@array_Voltage');
 Route::get('getPower','DashBoardController@array_Power');
 Route::get('getArray','DashBoardController@array_Data');
 
+Route::get('arrayChart','DashBoardController@array_chart');
+
 Route::get('testEx','TestController@testExcel');
 
 //Route::resource('/api/{station_id}/{device_id}/{id}','DataController');
