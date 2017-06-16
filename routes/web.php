@@ -26,19 +26,27 @@ Route::get('echarts',function (){
 });
 Route::get('table','TestController@array_table');
 Route::get('tb','TestController@index');
+/*******************ajax get*********************************/
 Route::get('gettemp','DashBoardController@array_Temp');
 Route::get('getIrr','DashBoardController@array_Irr');
 Route::get('getCurrent','DashBoardController@array_Current');
 Route::get('getVoltage','DashBoardController@array_Voltage');
 Route::get('getPower','DashBoardController@array_Power');
 Route::get('getArray','DashBoardController@array_Data');
+/****************************************************/
+Route::get('Temp','TempController@index')->name('Temp');
+Route::get('Irr','IrrController@index')->name('Irr');
+Route::get('Current','CurrentController@index')->name('Current');
+Route::get('Voltage','IrrController@index')->name('Voltage');
+Route::get('Power','PowerController@index')->name('Power');
+Route::get('Array','ArrayController@index')->name('Array');
 
 Route::get('arrayChart','DashBoardController@array_chart');
 
 Route::get('testEx','TestController@testExcel');
 
 //Route::resource('/api/{station_id}/{device_id}/{id}','DataController');
-Route::get('dashboard','DashBoardController@index');
+Route::get('dashboard','DashBoardController@index')->name('dashboard');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

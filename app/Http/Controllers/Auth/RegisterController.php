@@ -53,6 +53,7 @@ class RegisterController extends Controller
             'email' => 'required|string|email|max:255|unique:users',
             'phoneNumber' => 'required|string|max:12',
             'password' => 'required|string|min:6|confirmed',
+            'station_id' => 'required|string|min:1',
         ]);
     }
 
@@ -68,6 +69,7 @@ class RegisterController extends Controller
             'name' => $data['name'],
             'email' => $data['email'],
             'phoneNumber' => $data['phoneNumber'],
+            'station_id' => $data['station_id'],
             'api_token' => str_random(20),
             'register_time' => Carbon::now(),
             'roles' => 'member',

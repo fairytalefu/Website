@@ -27,7 +27,7 @@ class User extends Authenticatable
     ];
     public function hasOneStation()
     {
-        return $this->hasOne('App\PVStation','user_id','id');
+        return $this->hasOne('App\PVStation');
     }
 
 }

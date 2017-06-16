@@ -8,12 +8,12 @@
                 <a href="../../../resources/views/test/index.blade.php">Home</a>
                 <i class="icon-angle-right"></i>
             </li>
-            <li><a href="#">Power</a></li>
+            <li><a href="#">Voltage</a></li>
         </ul>
         <div class="row-fluid">
             <div class="box">
                 <div class="box-header">
-                    <h2><i class="halflings-icon list-alt"></i><span class="break"></span>光伏面板功率</h2>
+                    <h2><i class="halflings-icon list-alt"></i><span class="break"></span>光伏面板电压</h2>
                     <div class="box-icon">
                         <a href="#" class="btn-setting"><i class="halflings-icon wrench"></i></a>
                         <a href="#" class="btn-minimize"><i class="halflings-icon chevron-up"></i></a>
@@ -21,18 +21,18 @@
                     </div>
                 </div>
                 <div class="box-content">
-                    <div id="Power" style="width:600px;height:400px;float:left;" ></div>
+                    <div id="Voltage" style="width:600px;height:400px;float:left;" ></div>
                     <div style="float:right;">
                         <table class="table">
                             <thead>
                             <tr>
                                 <th>id</th>
-                                <th>Power</th>
+                                <th>Voltage</th>
                                 <th>created_at</th>
                             </tr>
                             </thead>
                             <tbody>
-                            @foreach($pvP as $pvt)
+                            @foreach($pvV as $pvt)
                                 <tr>
                                     <td class="center">{{$pvt->id}}</td>
                                     <td class="center">{{$pvt->Temp}}</td>
@@ -43,7 +43,7 @@
                         </table>
                         <div class="pagination pagination-centered">
                             <ul>
-                                {{ $pvP->links() }}
+                                {{ $pvV->links() }}
                             </ul>
                         </div>
                     </div>
@@ -61,7 +61,7 @@
     <script src="js/power.js"></script>
     <script src="js/Irr.js"></script>
     <script  type="text/javascript">
-          getPower();
+        getVoltage();
     </script>
 @endsection
 @endsection

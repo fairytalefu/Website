@@ -38,6 +38,20 @@
                             </div>
                         </div>
 
+                        <div class="form-group{{ $errors->has('station_id') ? ' has-error' : '' }}">
+                            <label for="station_id" class="col-md-4 control-label">光伏电站id</label>
+
+                            <div class="col-md-6">
+                                <input id="station_id" type="station_id" class="form-control" name="station_id" value="{{ old('station_id') }}" required>
+
+                                @if($errors->has('station_id'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('station_id') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
                         <div class="form-group{{ $errors->has('phoneNumber') ? ' has-error' : '' }}">
                             <label for="phoneNumber" class="col-md-4 control-label">手机号码</label>
 
@@ -51,7 +65,6 @@
                                 @endif
                             </div>
                         </div>
-
                         <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
                             <label for="password" class="col-md-4 control-label">密码</label>
 

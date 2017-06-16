@@ -16,6 +16,7 @@ class CreatePVArraysTable extends Migration
        Schema::create('p_v_arrays', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('array_id')->index()->default(0);
+            $table->string('station_id')->default(0);
             $table->float('Current',6);
             $table->float('Voltage',6);
             $table->float('Power',6);
