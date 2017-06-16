@@ -24,6 +24,7 @@ class CreatePVArraysTable extends Migration
             $table->float('Irr',6);
             $table->float('Vmp',6);
             $table->float('Imp',6);
+            $table->dateTime('upload_time');
             $table->enum('status_describe',['Noraml','Open1','Open2','Short1','Short2','Shadow1','Shadow2']);
             $table->timestamps();
         });

@@ -56,6 +56,7 @@ $factory->define(App\PVArray::class, function (Faker\Generator $faker) {
         'Voltage' => $faker->randomFloat(2,1,100),
         'Current' => $faker->randomFloat(2,0,15),
         'Power' => $faker->randomFloat(2,0,15),
+        'upload_time' => Carbon\Carbon::now(),
         'status_describe' =>'Noraml',
     ];
 });

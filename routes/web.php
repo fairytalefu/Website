@@ -44,10 +44,21 @@ Route::get('video','VideoController@index')->name('Video');
 
 Route::get('arrayChart','DashBoardController@array_chart');
 
-Route::get('testEx','TestController@testExcel');
+Route::post('importData','ExcelController@postImport')->name('importData');
+Route::get('deleteAll','ExcelController@deleteAll')->name('deleteAll');
+Route::get('getExport','ExcelController@getExport')->name('getExport');
 
 //Route::resource('/api/{station_id}/{device_id}/{id}','DataController');
 Route::get('dashboard','DashBoardController@index')->name('dashboard');
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'DashBoardController@index')->name('home');
+Route::get('logout', function (\Illuminate\Http\Request $request){
+    Auth::guard()->logout();
+    $request->session()->flush();
+    $request->session()->regenerate();
+    return redirect('/');
+})->name('logout');
+
+/***************Gateway ******post  data to server***************************/
+

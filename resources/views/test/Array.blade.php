@@ -27,11 +27,11 @@
         </div>
         <br>
         <hr>
-        <a href="#" class="btn btn-danger">删除全部</a>
+        <a href="{{route('deleteAll')}}" class="btn btn-danger">删除全部</a>
         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
             导入数据
         </button>
-        <a href="#" class="btn btn-success">导出数据</a>
+        <a href="{{route('getExport')}}" class="btn btn-success">导出数据</a>
         <!-- Modal -->
         <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
             <div class="modal-dialog" role="document">
@@ -41,7 +41,7 @@
                         <h4 class="modal-title" id="myModalLabel">导入光伏数据</h4>
                     </div>
                     <div class="modal-body">
-                        <form action="" method="post" enctype="multipart/form-data">
+                        <form action="{{route('importData')}}" method="post" enctype="multipart/form-data">
                             <input type="hidden" name="_token" value="{{csrf_token()}}">
                             <input type="file" name="pvarray">
                             <input type="submit" value="导入">
