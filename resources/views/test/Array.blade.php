@@ -70,6 +70,7 @@
                         <thead>
                         <tr>
                             <th>id</th>
+                            <th>station_id</th>
                             <th>Temp(°C)</th>
                             <th>Irr(W/㎡)</th>
                             <th>Vmp</th>
@@ -86,6 +87,7 @@
                         @foreach($pvarray as $pv)
                             <tr>
                                 <td>{{$pv->id}}  </td>
+                                <td>{{$pv->station_id}}  </td>
                                 <td class="center"><span class="label label-info">{{$pv->Temp}}</span></td>
                                 <td class="center"><span class="label label-info">{{$pv->Irr}}</span></td>
                                 <td class="center"><span class="label label-info">{{$pv->Vmp}}</span></td>

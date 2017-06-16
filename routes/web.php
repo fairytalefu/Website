@@ -40,6 +40,7 @@ Route::get('Current','CurrentController@index')->name('Current');
 Route::get('Voltage','VoltageController@index')->name('Voltage');
 Route::get('Power','PowerController@index')->name('Power');
 Route::get('Array','ArrayController@index')->name('Array');
+Route::get('video','VideoController@index')->name('Video');
 
 Route::get('arrayChart','DashBoardController@array_chart');
 

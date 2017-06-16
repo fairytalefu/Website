@@ -8,13 +8,9 @@
     <meta name="description" content="Bootstrap Metro Dashboard">
     <meta name="author" content="Dennis Ji">
     <meta name="keyword" content="Metro, Metro UI, Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
-    <!-- end: Meta -->
-    <style type="text/css">
-        /*body, html{width: 100%;height: 100%;margin:0;font-family:"微软雅黑";}*/
-        #allmap{height:400px;width:100%;}
-        /*#r-result{width:100%; font-size:14px;}*/
-    </style>
-    <!-- start: Mobile Specific -->
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <!-- start: Mobile Specific -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- end: Mobile Specific -->
 
