@@ -37,7 +37,7 @@ Route::get('getArray','DashBoardController@array_Data');
 Route::get('Temp','TempController@index')->name('Temp');
 Route::get('Irr','IrrController@index')->name('Irr');
 Route::get('Current','CurrentController@index')->name('Current');
-Route::get('Voltage','IrrController@index')->name('Voltage');
+Route::get('Voltage','VoltageController@index')->name('Voltage');
 Route::get('Power','PowerController@index')->name('Power');
 Route::get('Array','ArrayController@index')->name('Array');
 

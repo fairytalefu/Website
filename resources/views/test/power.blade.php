@@ -22,34 +22,51 @@
                 </div>
                 <div class="box-content">
                     <div id="Power" style="width:600px;height:400px;float:left;" ></div>
-                    <div style="float:right;">
-                        <table class="table">
-                            <thead>
-                            <tr>
-                                <th>id</th>
-                                <th>Power</th>
-                                <th>created_at</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            @foreach($pvP as $pvt)
-                                <tr>
-                                    <td class="center">{{$pvt->id}}</td>
-                                    <td class="center">{{$pvt->Temp}}</td>
-                                    <td class="center">{{$pvt->created_at}}</td>
-                                </tr>
-                            @endforeach
-                            </tbody>
-                        </table>
-                        <div class="pagination pagination-centered">
-                            <ul>
-                                {{ $pvP->links() }}
-                            </ul>
-                        </div>
-                    </div>
+
                 </div>
             </div>
         </div>
+        <div class="row-fluid sortable">
+            <div class="box span12">
+                <div class="box-header">
+                    <h2><i class="halflings-icon align-justify"></i><span class="break"></span>光伏阵列功率</h2>
+                    <div class="box-icon">
+                        <a href="#" class="btn-setting"><i class="halflings-icon wrench"></i></a>
+                        <a href="#" class="btn-minimize"><i class="halflings-icon chevron-up"></i></a>
+                        <a href="#" class="btn-close"><i class="halflings-icon remove"></i></a>
+                    </div>
+                </div>
+                <div class="box-content">
+                    <table class="table table-condensed">
+                        <thead>
+                        <tr>
+                            <th>id</th>
+                            <th>Power</th>
+                            <th>created_at</th>
+                            <th>Status</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        @foreach($pvP as $pvi)
+                            <tr>
+                                <td>{{$pvi->id}}</td>
+                                <td class="center">{{$pvi->Imp}}</td>
+                                <td class="center">{{$pvi->created_at}}</td>
+                                <td class="center">
+                                    <span class="label label-success">{{$pvi->status_describe}}</span>
+                                </td>
+                            </tr>
+                        @endforeach
+                        </tbody>
+                    </table>
+                    <div class="pagination pagination-centered">
+                        <ul>
+                            {{$pvP->links()}}
+                        </ul>
+                    </div>
+                </div>
+            </div><!--/span-->
+        </div><!--/row-->
     </div><!--/row-->
     <hr>
 @section('baiduJs')
