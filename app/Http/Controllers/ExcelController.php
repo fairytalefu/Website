@@ -6,7 +6,7 @@ use App\PVArray;
 use Illuminate\Http\Request;
 use Excel;
 use DB;
-
+use Illuminate\Support\Facades\Input;
 class ExcelController extends Controller
 {
     public function testExcel()
@@ -22,7 +22,7 @@ class ExcelController extends Controller
     {
         Excel::load(Input::file('pvarray'),function($reader){
             $reader->each(function ($sheet){
-                PVArray::firstOrCreate($sheet->toArray);
+                PVArray::firstOrCreate($sheet->toArray());
             });
         });
     }
