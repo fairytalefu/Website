@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+      return view('welcome');
 });
 Route::get('/profile', function () {
     return view('profile');
@@ -43,6 +43,9 @@ Route::get('Array','ArrayController@index')->name('Array');
 Route::get('video','VideoController@index')->name('Video');
 
 Route::get('arrayChart','DashBoardController@array_chart');
+Route::get('lunbo',function (){
+    return view('folder.lunbo');
+});
 
 Route::post('importData','ExcelController@postImport')->name('importData');
 Route::get('deleteAll','ExcelController@deleteAll')->name('deleteAll');
@@ -52,6 +55,8 @@ Route::get('getExport','ExcelController@getExport')->name('getExport');
 Route::get('dashboard','DashBoardController@index')->name('dashboard');
 Auth::routes();
 
+//send Email
+Route::get('email/verify/{token}',['as' => 'email.verify','users' => 'EmailController@verify']);
 Route::get('/home', 'DashBoardController@index')->name('home');
 Route::get('logout', function (\Illuminate\Http\Request $request){
     Auth::guard()->logout();

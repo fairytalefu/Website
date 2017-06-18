@@ -177,6 +177,10 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+        Encore\Admin\Providers\AdminServiceProvider::class,
+        Naux\Mail\SendCloudServiceProvider::class,
+        Laracasts\Flash\FlashServiceProvider::class,
+
     ],
 
     /*

@@ -1,13 +1,13 @@
 <?php
 
 namespace App\Http\Controllers\Auth;
-
+use Mail;
 use App\User;
 use App\Http\Controllers\Controller;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
-
+use Naux\Mail\SendCloudTemplate;
 class RegisterController extends Controller
 {
     /*
@@ -65,11 +65,12 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-         $Data = User::create([
+         $user = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'phoneNumber' => $data['phoneNumber'],
             'station_id' => $data['station_id'],
+            'confirmation_token' => str_random(40),
             'api_token' => str_random(20),
             'register_time' => Carbon::now(),
             'roles' => 'member',
@@ -78,6 +79,23 @@ class RegisterController extends Controller
             'remember_token' => str_random(10),
             'password' => bcrypt($data['password']),
         ]);
-        return $Data;
+        $this->sendVerifyToUser($user);
+        return $user;
+    }
+
+    private function sendVerifyToUser($user)
+    {
+        // 模板变量
+        $data = [
+            'url' => route('email.verify',['token' => $user->confirmation_token]),
+            'name' => $user->name,
+            ];
+        $template = new SendCloudTemplate('Laravel_APP_Register', $data);
+
+        Mail::raw($template, function ($message) use($user) {
+            $message->from('admin@PVStation.com', '用户注册');
+
+            $message->to($user->email);
+        });
     }
 }
