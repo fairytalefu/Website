@@ -53,7 +53,7 @@ class RegisterController extends Controller
             'email' => 'required|string|email|max:255|unique:users',
             'phoneNumber' => 'required|string|max:12',
             'password' => 'required|string|min:6|confirmed',
-            'station_id' => 'required|string|min:1',
+
         ]);
     }
 
@@ -65,6 +65,7 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+//        dd($data['lng']);
          $user = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
@@ -74,8 +75,8 @@ class RegisterController extends Controller
             'api_token' => str_random(20),
             'register_time' => Carbon::now(),
             'roles' => 'member',
-            'Lng' => 0.0,
-            'Lat' => 0.0,
+            'Lng' => $data['lng'],
+            'Lat' => $data['lat'],
             'remember_token' => str_random(10),
             'password' => bcrypt($data['password']),
         ]);

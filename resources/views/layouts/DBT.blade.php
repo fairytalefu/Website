@@ -4,8 +4,10 @@
 
     <!-- start: Meta -->
     <meta charset="utf-8">
-    <title>Bootstrap Metro Dashboard by Dennis Ji for ARM demo</title>
+    <title>光伏在线监测系统</title>
     <meta name="description" content="Bootstrap Metro Dashboard">
+    <!-- 定时刷新-->
+    <meta http-equiv="refresh" content="20">
     <meta name="author" content="Dennis Ji">
     <meta name="keyword" content="Metro, Metro UI, Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
     <!-- end: Meta -->
@@ -68,7 +70,7 @@
                             <li class="dropdown-menu-title">
                                 <span>账户信息</span>
                             </li>
-                            <li><a href="http://127.0.0.1:9999/profile"><i class="halflings-icon user"></i> 个人主页</a></li>
+                            <li><a href="{{route('profile')}}"><i class="halflings-icon user"></i> 个人主页</a></li>
                             <li><a href="{{ route('logout') }}"><i class="halflings-icon off"></i> 退出登录</a></li>
                         </ul>
                     </li>
@@ -87,7 +89,7 @@
             <div class="nav-collapse sidebar-nav">
                 <ul class="nav nav-tabs nav-stacked main-menu">
                     <li><a href="{{route('dashboard')}}"><i class="icon-bar-chart"></i><span class="hidden-tablet"> 主页</span></a></li>
-                    <li><a href="../../../public/test/html/messages.html"><i class="icon-envelope"></i><span class="hidden-tablet"> 概况</span></a></li>
+                    <li><a href="{{route('Build')}}"><i class="icon-envelope"></i><span class="hidden-tablet"> 概况</span></a></li>
 
                     <li><a href="{{route('Array')}}"><i class="icon-envelope"></i><span class="hidden-tablet"> 光伏阵列</span></a></li>
                     <li><a href="{{route('Temp')}}"><i class="icon-envelope"></i><span class="hidden-tablet"> 温度</span></a></li>

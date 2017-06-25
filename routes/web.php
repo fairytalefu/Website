@@ -41,6 +41,7 @@ Route::get('Voltage','VoltageController@index')->name('Voltage');
 Route::get('Power','PowerController@index')->name('Power');
 Route::get('Array','ArrayController@index')->name('Array');
 Route::get('video','VideoController@index')->name('Video');
+Route::get('build','BuildController@index')->name('Build');
 
 Route::get('arrayChart','DashBoardController@array_chart');
 Route::get('lunbo',function (){
@@ -57,6 +58,7 @@ Auth::routes();
 
 //send Email
 Route::get('email/verify/{token}',['as' => 'email.verify','users' => 'EmailController@verify']);
+Route::get('sendNotification',['as' => 'sendNotification','users' => 'EmailController@sendNotification']);
 Route::get('/home', 'DashBoardController@index')->name('home');
 Route::get('logout', function (\Illuminate\Http\Request $request){
     Auth::guard()->logout();
@@ -66,4 +68,4 @@ Route::get('logout', function (\Illuminate\Http\Request $request){
 })->name('logout');
 
 /***************Gateway ******post  data to server***************************/
-
+Route::any('postPVData','StroreDataController@store');

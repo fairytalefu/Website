@@ -5,7 +5,7 @@
                 <ul class="breadcrumb">
                     <li>
                         <i class="icon-home"></i>
-                        <a href="../../../resources/views/test/index.blade.php">Home</a>
+                        <a href="{{route('dashboard')}}">Dashboard</a>
                         <i class="icon-angle-right"></i>
                     </li>
                     <li><a href="#">Temp</a></li>
@@ -49,7 +49,7 @@
                                 @foreach($pvT as $pvi)
                                     <tr>
                                         <td>{{$pvi->id}}</td>
-                                        <td class="center">{{$pvi->Imp}}</td>
+                                        <td class="center">{{$pvi->Temp}}</td>
                                         <td class="center">{{$pvi->created_at}}</td>
                                         <td class="center">
                                             <span class="label label-success">{{$pvi->status_describe}}</span>

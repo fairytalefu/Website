@@ -50,7 +50,7 @@
                         @foreach($pvP as $pvi)
                             <tr>
                                 <td>{{$pvi->id}}</td>
-                                <td class="center">{{$pvi->Imp}}</td>
+                                <td class="center">{{$pvi->Power}}</td>
                                 <td class="center">{{$pvi->created_at}}</td>
                                 <td class="center">
                                     <span class="label label-success">{{$pvi->status_describe}}</span>

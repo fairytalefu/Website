@@ -1,4 +1,4 @@
-@extends('layouts.DBT')
+@extends('layouts.DBV')
 
 @section('content')
     <!-- Fonts -->
@@ -8,7 +8,7 @@
         <ul class="breadcrumb">
             <li>
                 <i class="icon-home"></i>
-                <a href="../../../resources/views/test/index.blade.php">Home</a>
+                <a href="{{route('dashboard')}}">Dashboard</a>
                 <i class="icon-angle-right"></i>
             </li>
             <li><a href="#">Video</a></li>
@@ -16,9 +16,8 @@
         <div class="row-fluid">
             <div class="box">
                 <video id="my_video" class="video-js vjs-default-skin vjs-big-play-centered" controls preload="auto" width="640" height="480" poster="videoCap/video.jpg" data-setup="{}">
-                    <source src="//vjs.zencdn.net/v/oceans.mp4" type="video/mp4"></source>
-                    <source src="//vjs.zencdn.net/v/oceans.webm" type="video/webm"></source>
-                    <source src="//vjs.zencdn.net/v/oceans.ogv" type="video/ogg"></source>
+                        {{--<source src="rtmp://192.168.1.110:1935/myapp/mystream" type='rtmp/flv'></source>--}}
+                <source src="uploads/HH.mp4" type="video/mp4">
                 </video>
             </div>
 

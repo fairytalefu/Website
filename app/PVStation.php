@@ -14,10 +14,6 @@ class PVStation extends Model
         return $this->belongsTo('App\User');
     }
 
-    public function hasManyArrays()
-    {
-        return $this->hasMany('App\PVArray');
-    }
     public function hasManyModules()
     {
         return $this->hasMany('App\PVModules');

@@ -51,8 +51,6 @@ $factory->define(App\PVArray::class, function (Faker\Generator $faker) {
     return [
         'Temp' => $faker->randomFloat(2,8,30),
         'Irr' => $faker->randomFloat(2,100,1000),
-        'Vmp' => $faker->randomFloat(2,1,100),
-        'Imp' => $faker->randomFloat(2,0,15),
         'Voltage' => $faker->randomFloat(2,1,100),
         'Current' => $faker->randomFloat(2,0,15),
         'Power' => $faker->randomFloat(2,0,15),

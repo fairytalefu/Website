@@ -18,4 +18,8 @@ class EmailController extends Controller
         $user->save();
         return redirect('/home');
     }
+    public function sendNotification()
+    {
+
+    }
 }

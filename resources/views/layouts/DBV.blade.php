@@ -4,7 +4,7 @@
 
     <!-- start: Meta -->
     <meta charset="utf-8">
-    <title>Bootstrap Metro Dashboard by Dennis Ji for ARM demo</title>
+    <title>光伏在线监测系统</title>
     <meta name="description" content="Bootstrap Metro Dashboard">
     <meta name="author" content="Dennis Ji">
     <meta name="keyword" content="Metro, Metro UI, Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
@@ -64,7 +64,7 @@
                             <li class="dropdown-menu-title">
                                 <span>账户信息</span>
                             </li>
-                            <li><a href="http://127.0.0.1:9999/profile"><i class="halflings-icon user"></i> 个人主页</a></li>
+                            <li><a href="{{route('profile')}}"><i class="halflings-icon user"></i> 个人主页</a></li>
                             <li><a href="{{ route('logout') }}"><i class="halflings-icon off"></i> 退出登录</a></li>
                         </ul>
                     </li>

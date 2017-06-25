@@ -5,7 +5,7 @@
         <ul class="breadcrumb">
             <li>
                 <i class="icon-home"></i>
-                <a href="../../../resources/views/test/index.blade.php">Home</a>
+                <a href="{{route('dashboard')}}">Dashboard</a>
                 <i class="icon-angle-right"></i>
             </li>
             <li><a href="#">PVArray</a></li>
@@ -48,7 +48,7 @@
                         </form>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                        <butImpton type="button" class="btn btn-default" data-dismiss="modal">关闭</butImpton>
                         <button type="button" class="btn btn-primary">返回</button>
                     </div>
                 </div>
@@ -73,11 +73,9 @@
                             <th>station_id</th>
                             <th>Temp(°C)</th>
                             <th>Irr(W/㎡)</th>
-                            <th>Vmp</th>
-                            <th>Imp</th>
-                            <th>Current</th>
-                            <th>Voltage</th>
-                            <th>Power</th>
+                            <th>Current(A)</th>
+                            <th>Voltage(V)</th>
+                            <th>Power(W)</th>
                             <th>Status</th>
                             <th>created_at</th>
                             <th>Option</th>
@@ -90,8 +88,6 @@
                                 <td>{{$pv->station_id}}  </td>
                                 <td class="center"><span class="label label-info">{{$pv->Temp}}</span></td>
                                 <td class="center"><span class="label label-info">{{$pv->Irr}}</span></td>
-                                <td class="center"><span class="label label-info">{{$pv->Vmp}}</span></td>
-                                <td class="center"><span class="label label-info">{{$pv->Imp}}</span></td>
                                 <td class="center"><span class="label label-primary">{{$pv->Current}}</span></td>
                                 <td class="center"><span class="label label-primary">{{$pv->Voltage}}</span></td>
                                 <td class="center"><span class="label label-primary">{{$pv->Power}}</span></td>

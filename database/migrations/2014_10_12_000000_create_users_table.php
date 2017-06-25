@@ -22,6 +22,8 @@ class CreateUsersTable extends Migration
             $table->string('confirmation_token');
             $table->string('email')->unique();
             $table->string('password');
+            $table->string('Lat');
+            $table->string('Lng');
             $table->string('avatars')->default('default.jpg');
             $table->string('api_token');
             $table->enum('roles',['admin','member']);
